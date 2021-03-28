@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <style>
+            body{
+                margin: 0px;
+                overflow:hidden;
+            }
+        </style>
+    </head>
+
+    <body>
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-assets>
+                <a-asset-item id="waterGun" src="./assets/pichkaari.glb"></a-asset-item>
+                <a-asset-item id="gujhiya" src="./assets/gujiya.glb"></a-asset-item>
+                <a-asset-item id="plate" src="./assets/holiplate.glb"></a-asset-item>
+                <a-asset-item id="mask" src="./assets/mask.glb"></a-asset-item>
+            </a-assets>
+
+            <a-marker id="plateColor" type="pattern" preset="custom" url="./patterns/pattern-color.patt">
+                <a-entity id="Plate" gltf-model="#plate" scale="2 2 2" rotation="280 0 0" ></a-entity>
+            </a-marker>
+
+            <a-marker id="waterGun" type="pattern" preset="custom" url="./patterns/pattern-waterGun.patt">
+                <a-entity id="pichkari" gltf-model="#waterGun" scale="2 2 2" rotation="0 0 0" animation="property:rotation; to:0 360 0; loop:true; easing:linear; duration:5000;"></a-entity>
+            </a-marker>
+
+            <a-marker id="gujhiya" type="pattern" preset="custom" url="./patterns/pattern-gujhiya.patt">
+                <a-entity id="gujhiya" gltf-model="#gujhiya" scale="2 2 2" position="0 0 0" rotation="-12.237 96.199 -108.970" ></a-entity>
+            </a-marker>
+
+            <a-marker id="maskPattern" type="pattern" preset="custom" url="./patterns/pattern-mask.patt">
+                <a-entity id="maskM" gltf-model="#mask" scale="2 2 2 " rotation="4.019 -1.248 -178.511" ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+        
+    </body>
+</html>
